@@ -1292,7 +1292,9 @@ window.Chart = function(context){
 
         	graphMin = Math.floor(minValue / (1 * Math.pow(10, rangeOrderOfMagnitude))) * Math.pow(10, rangeOrderOfMagnitude);
             
-            graphMax = Math.ceil(maxValue / (1 * Math.pow(10, rangeOrderOfMagnitude))) * Math.pow(10, rangeOrderOfMagnitude);
+            // Original: 1431 -> 2000 ::  (1431/1000).ceil          * 1000
+            // Improved: 1431 -> 1500 :: ((1431/1000)*10).ceil / 10 * 1000
+            graphMax = Math.ceil(10*(maxValue / (1 * Math.pow(10, rangeOrderOfMagnitude))))/10 * Math.pow(10, rangeOrderOfMagnitude);
             
             graphRange = graphMax - graphMin;
             
