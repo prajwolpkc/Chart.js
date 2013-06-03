@@ -1117,6 +1117,11 @@ window.Chart = function(context){
 			
 			ctx.textAlign = "right";
 			ctx.textBaseline = "middle";
+
+      // Always draw 0 on y-axis.
+      // Note this bypasses the templating process.
+      ctx.fillText('0',yAxisPosX-8,xAxisPosY);
+
 			for (var j=0; j<calculatedScale.steps; j++){
 				ctx.beginPath();
 				ctx.moveTo(yAxisPosX-3,xAxisPosY - ((j+1) * scaleHop));
