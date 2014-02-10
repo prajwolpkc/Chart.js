@@ -1008,8 +1008,16 @@ window.Chart = function(context){
 			return {
 				maxValue : upperValue,
 				minValue : lowerValue,
-				maxSteps : maxSteps,
-				minSteps : minSteps
+				
+				/* Skips out decimal values and show clean integer*/
+				
+				//maxSteps : maxSteps,
+				//minSteps : minSteps
+				maxSteps : 5,
+				minSteps : 0
+				
+				/***********************************************/
+				
 			};
 			
 	
