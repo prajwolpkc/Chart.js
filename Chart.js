@@ -914,6 +914,16 @@ window.Chart = function(context){
 			
 			ctx.textAlign = "right";
 			ctx.textBaseline = "middle";
+			
+			
+			/* Always draw minimum value on y-axis.
+		    	if there is data then show its minimum value ( Y-Axis) by subtracting step value */
+			
+			if(calculatedScale.labels[0]) // check for error 
+				ctx.fillText( calculatedScale.labels[0] - calculatedScale.stepValue, yAxisPosX-8,xAxisPosY);
+		    	
+		    	/********************************/
+		    	
 			for (var j=0; j<calculatedScale.steps; j++){
 				ctx.beginPath();
 				ctx.moveTo(yAxisPosX-3,xAxisPosY - ((j+1) * scaleHop));
